@@ -15,6 +15,14 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 150);
+            $table->string('item_type')->nullable();
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->datetime('start_date');
+            $table->datetime('end_date');
+            $table->tinyInteger('use_pin');
+            $table->char('pin', 4);
+            $table->string('url', 255);
             $table->timestamps();
         });
     }
